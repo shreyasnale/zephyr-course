@@ -1,0 +1,30 @@
+/dts-v1/;
+
+#include <st/f4/stm32f401Xe.dtsi>
+#include <st/f4/stm32f401r(d-e)tx-pinctrl.dtsi>
+
+/ {
+    model = "Custom Nucleo F401RE Scratch Board";
+    compatible = "st,stm32f401re-nucleo";
+
+    chosen {
+        zephyr,console = &usart2;
+        zephyr,shell-uart = &usart2;
+        zephyr,sram = &sram0;
+        zephyr,flash = &flash0;
+    };
+};
+
+&clk_hse {
+    hse-bypass;
+    clock-frequency = <DT_FREQ_M(8)>;
+    status = "okay";
+};
+
+&rcc {
+    clocks = <&pll>;
+    clock-frequency = <DT_FREQ_M(84)>;
+    ahb-prescaler = <1>;
+    apb1-prescaler = <2>;
+    apb2-prescaler = <1>;
+};

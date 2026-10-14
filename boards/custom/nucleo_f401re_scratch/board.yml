@@ -1,0 +1,6 @@
+board:
+  name: nucleo_f401re_scratch
+  full_name: Nucleo F401RE Scratch
+  vendor: custom
+  socs:
+    - name: stm32f401xe
